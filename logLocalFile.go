@@ -1,4 +1,4 @@
-package cloudlog
+package digcloudlog
 
 import (
 	"log"

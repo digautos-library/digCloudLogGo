@@ -1,4 +1,4 @@
-package cloudlog
+package digcloudlog
 
 // dig cloud log
 func DCL_Info(args ...any) {
@@ -18,4 +18,9 @@ func DCL_addLocalFile(basePath, infoFileName, errorFileName string) error {
 }
 func DCL_addLogflare(sourceid, apiKey string) error {
 	return GetLogAdapter().AddLogflare(sourceid, apiKey)
+}
+
+/////// db log
+func DCL_addPostgresql(flag, dburl string) error {
+	return GetLogAdapter().AddDbPostgres(flag, dburl)
 }

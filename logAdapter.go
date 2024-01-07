@@ -1,6 +1,7 @@
 package digcloudlog
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/digautos-library/digCloudLogGo/modDatabase"
@@ -69,5 +70,14 @@ func (g *CDCLogAdapter) AddDbPostgres(flag, dburl string) error {
 		return err
 	}
 	g.dblog = true
+	return nil
+}
+
+func (g *CDCLogAdapter) AddNewLogService(service interface{}) error {
+	tmp, ok := service.(IDCLogger)
+	if !ok {
+		return errors.New("interface is not IDCLogger")
+	}
+	g.instList = append(g.instList, tmp)
 	return nil
 }

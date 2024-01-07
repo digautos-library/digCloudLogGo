@@ -21,6 +21,11 @@ func DCL_addLogflare(sourceid, apiKey string) error {
 }
 
 /////// db log
+func DCL_AddNewLogService(service interface{}) error {
+	return GetLogAdapter().AddNewLogService(service)
+}
+
+/////// db log
 func DCL_addPostgresql(flag, dburl string) error {
 	return GetLogAdapter().AddDbPostgres(flag, dburl)
 }
